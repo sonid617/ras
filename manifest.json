@@ -1,0 +1,39 @@
+{
+    "manifest_version": 3,
+    "name": "WhatsApp Behavior Analyzer",
+    "version": "3.0",
+    "description": "Analyzes behavior in WhatsApp conversations.",
+    "permissions": [
+         "activeTab",
+        "storage",
+        "scripting",
+        "notifications"  
+    ],
+    "background": {
+      "service_worker": "background.js"
+    },
+    "content_scripts": [
+      {
+        "matches": [
+          "https://web.whatsapp.com/*",
+          "https://www.instagram.com/*",
+          "https://web.snapchat.com/*"
+        ],
+        "js": ["content.js"]
+      }
+    ],
+    "host_permissions": [
+      "http://localhost:5000/analyze",
+      "https://web.whatsapp.com/*",
+      "https://www.instagram.com/*",
+      "https://web.snapchat.com/*",
+      " http://172.31.0.59:5000"
+    ],
+    "action": {
+      "default_popup": "popup.html"
+    },
+    "content_security_policy": {
+      "extension_pages": "script-src 'self'; object-src 'self'"
+    }
+  }
+  
