@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>WhatsApp Behavior Analyzer</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            padding: 10px;
+            width: 300px;
+            height: auto;
+            border-radius: 20px; /* Fully rounded edges */
+            overflow: hidden; /* Prevent content overflow on rounded edges */
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2); /* Add a shadow for depth */
+            background-color: #f9f9f9; /* Light background color */
+            animation: fadeIn 0.5s ease-in-out; /* Add fade-in animation */
+        }
+
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+                transform: scale(0.9);
+            }
+            to {
+                opacity: 1;
+                transform: scale(1);
+            }
+        }
+
+        .icon-container {
+            text-align: center;
+            margin-bottom: 20px;
+            animation: bounceIn 1s ease-in-out; /* Add bounce animation to the icon */
+        }
+
+        @keyframes bounceIn {
+            0% {
+                opacity: 0;
+                transform: scale(0.3);
+            }
+            50% {
+                opacity: 0.9;
+                transform: scale(1.1);
+            }
+            100% {
+                opacity: 1;
+                transform: scale(1);
+            }
+        }
+
+        .icon-container img {
+            width: 60px; /* Adjusted size for the icon */
+            height: 60px;
+            border-radius: 50%; /* Make the icon round */
+            border: 2px solid #ccc; /* Optional: Add a border around the icon */
+            padding: 5px; /* Add some space inside the border */
+            background-color: #ffffff; /* White background for the icon */
+        }
+
+        h1 {
+            text-align: center;
+            font-size: 18px;
+            margin: 10px 0;
+            color: #333;
+        }
+
+        p {
+            text-align: center;
+            font-size: 14px;
+            margin-bottom: 20px;
+            color: #555;
+        }
+
+        button {
+            display: block;
+            margin: 0 auto;
+            padding: 10px 20px;
+            font-size: 14px;
+            border: none;
+            border-radius: 20px; /* Rounded button edges */
+            background-color: #4caf50; /* Green color for the button */
+            color: #fff;
+            cursor: pointer;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2);
+            transition: background-color 0.3s, transform 0.2s; /* Smooth hover animation */
+        }
+
+        button:hover {
+            background-color: #45a049; /* Slightly darker green on hover */
+            transform: translateY(-2px); /* Lift the button slightly on hover */
+        }
+
+        #results {
+            margin-top: 20px;
+            text-align: left;
+            font-size: 14px;
+            color: #333;
+        }
+
+        #results div {
+            margin-bottom: 15px;
+            padding: 10px;
+            border-radius: 10px;
+            background-color: #f1f1f1; /* Subtle background for results */
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+            animation: slideIn 0.5s ease-in-out; /* Add slide-in animation to results */
+        }
+
+        @keyframes slideIn {
+            from {
+                opacity: 0;
+                transform: translateX(-20px);
+            }
+            to {
+                opacity: 1;
+                transform: translateX(0);
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="icon-container">
+        <img src="icon.png" alt="App Icon">
+    </div>
+    <h1>Behavior Analyzer</h1>
+    <p>Click the button below to analyze the current chat.</p>
+    <button id="analyzeButton">Analyze Chat</button>
+    <div id="results"></div>
+    <canvas id="sentimentChart" width="300" height="300"></canvas>
+    <script src="Chart.js"></script>
+    <script src="popup.js"></script>
+</body>
+</html>
